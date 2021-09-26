@@ -14,6 +14,6 @@ class Wizcog(commands.Cog):
         bulbs = await discovery.discover_lights(broadcast_space="192.168.1.255")
         
         bulb = wizlight("bulbs[0].ip")
-        await bulb.turn_on(PilotBuilder(rgb = (0, 128, 255)))
+        asyncio.run(await bulb.turn_on(PilotBuilder(rgb = (0, 128, 255))))
         
         await ctx.send(f"Turning on: {bulbs[0].ip}")
